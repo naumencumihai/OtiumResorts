@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if hotels_list %}
+    <h1> Rooms available from {{start_date}} to {{end_date}}</h1>
+        <ul>
+        {% for hotel in hotels_list %}
+            <li><a href="{% url 'hotels:detail' hotel.id %}"><font size="+3">{{ hotel.name }}</font></a></li>
+            <br><br>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hotels are available.</p>
+    {% endif %}
+{% endblock content %}

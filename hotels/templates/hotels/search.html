@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'hotels:index' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>Search for an available room</h1></legend>
+        <label for="start_date">Start date</label>
+        <input type="date" name="start_date" id="start_date">
+        <br>
+        <label for="end_date">End date</label>
+        <input type="date" name="end_date" id="end_date">
+        <br><br>
+
+    </fieldset>
+    <input type="submit" value="Search">
+    </form>
+{% endblock content %}

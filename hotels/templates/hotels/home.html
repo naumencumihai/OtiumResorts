@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Designed by:LjoveX
+         It is 100% free to use-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Dobro dosli u najbolji kafic na svetu">
+    <meta name="keywords" content="Kafic">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Hotel BT - Hello</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+        <div class="container">
+                <h1 class="logo"><a href = "{% url 'hotels:home' %}">Otium</a></h1>
+                <ul>
+                    <li><a class="current" href = "{% url 'hotels:home' %}">Home</a></li>
+                    <li><a href = "{% url 'hotels:about' %}">About Us</a></li>
+                    <li><a href = "{% url 'hotels:contact' %}">Contact Us</a></li>
+                    
+                    {% if request.user.is_authenticated %}
+                      <li><a href="{% url 'hotels:search' %}">Search</a></li>
+                      <li><a href="{% url 'authservice:logout' %}">Logout</a></li>
+                    {% else %}
+                      <li><a href="{% url 'authservice:login' %}">Login</a></li>
+                      <li><a href="{% url 'authservice:signup' %}">Sign up</a></li>
+                      
+                    {% endif %}
+                    
+                </ul>
+              </div>
+            </nav>  
+        
+         <div id="showcase">
+           <div class="container">
+               <div class="showcase-content">
+                   <h1><span class="text-primary">Enjoy</span> your stay</h1>
+                   <a class="btn" href = "{% url 'hotels:about' %}">About our hotels</a>
+               </div>
+           </div>
+         </div>   
+    </header>
+    <section id="home-info" class="bg-dark">
+        <div class="info-img"></div>
+        <div class="info-content">
+          <h2><span class="text-primary">History</span> of our hotels</h2>
+          <p>
+            OTIUM subsidiaries are operating in Turkey, Russia, Poland, Ukraine, Belarus, Georgia, Thailand, Egypt, UAE, Spain and Greece. It has positioned itself in many countries under the trademarks of Otium Travel (Russia, Turkey, Ukraine, Belarus, Poland, Georgia, Russia, Turkey, Poland, Egypt, Thailand, Spain, UAE and Greece). Through expansion, OTIUM HOTELS is entering into new markets and destinations, making progress without compromising on quality and customer satisfaction.
+            The number of customers served by the Group in 2017 was 1 million 873 thousand, whereas it reached to 2 million 400 thousand in 2019 with an increase of over 30%, including the package tours. 
+          </p>
+          <a href = "{% url 'hotels:about' %}" class="btn btn-light">Read More</a>
+        </div>
+      </section>
+       <section id="features">
+           <div class="box bg-light">
+            <i class="fas fa-hotel fa-3x"></i>
+               <h3>Great Location</h3>
+               <p>Best views and facilities. Beach-side. Mountain-top. City-center. Top-food.</p>
+           </div>
+           <div class="box bg-primary">
+            <i class="fas fa-utensils fa-3x"></i>
+            <h3>Restaurants</h3>
+            <p>Excellent dining and breakfast opportunities. Family friendly. Drinks on us.</p>
+           </div>
+           <div class="box bg-light">
+            <i class="fas fa-dumbbell fa-3x"></i>
+            <h3>Gym</h3>
+            <p>Sports facilities included. Find out here about our gym fitness programs.</p>
+           </div>
+       </section>
+       <footer id="main-footer">        
+       </footer>
+</body>
+</html>

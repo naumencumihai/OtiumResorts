@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> Rooms available from {{start_date}} to {{end_date}}</h1>
+    <h1>{{ hotel.name }}</h1>
+    <ul>
+    {% for room in hotel.room_set.all %}
+        <li><a href="/hotels/{{hotel.id}}/{{room.id}}"><font size="+3">{{room.get_type_display}} Room {{ room.number }}</font></a></li>
+        <br>
+    {% endfor %}
+    </ul>
+{% endblock content %}

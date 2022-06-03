@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Dobro dosli u najbolji kafic na svetu">
+    <meta name="keywords" content="Kafic">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Otium - About</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+        <div class="container">
+                <h1 class="logo"><a href = "{% url 'hotels:home' %}">Otium</a></h1>
+                <ul>
+                    <li><a href = "{% url 'hotels:home' %}">Home</a></li>
+                    <li><a class="current" href = "{% url 'hotels:about' %}">About Us</a></li>
+                    <li><a href = "{% url 'hotels:contact' %}">Contact Us</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'hotels:search' %}">Search</a></li>
+                        <li><a href="{% url 'authservice:logout' %}">Logout</a></li>      
+                    {% else %}
+                        <li><a href="{% url 'authservice:login' %}">Login</a></li>
+                        <li><a href="{% url 'authservice:signup' %}">Sign up</a></li>    
+                    {% endif %}
+                    
+                </ul>
+              </div>
+            </nav>  
+    </header>
+   <section id="about-info" class="bg-light py-3">
+       <div class="container">
+           <div class="info-left">
+               <h1 class="l-heading"> <span class="text-primary">About</span> our hotels </h1>
+               <p>Our first venture took place in Turkey, Istambul where we launched our first Otium Hotel. Now we can offer accomodation services all over Europe and Asia.</p>
+               <p>As OTIUM Hotels & Resorts, we believe that by providing customer satisfaction we can increase our competitive power and reach a much better place at the markets we are running our operations in.
+
+                Our aim is to deliver the services we commit to in the best possible way and in accordance to high quality standards.
+                
+                In order to achieve this aim, we receive the most valuable support from our employees who are experts in their field.</p>
+           </div>
+           <div class="info-right">
+               <img src="./img/photo-2.jpg" alt="Hotel">
+           </div>
+       </div>
+   </section>
+   <div class="clr"></div>
+
+   <section id="testimonials" class="py-3">
+    <div class="container">
+       <h2 class="l-heading ">What our guest says</h2>
+       <div class="testimonial bg-primary">
+           <img src="./img/person-1.jpg" alt="Samanta">
+           <p>Between the staff, food, amenities and the property itself we were blown away!! By far the best vacation I’ve been on! Jose our conceriage would txt us or find us making sure everything was perfect!! I even forgot my belt they ran to town to buy me one!</p>
+
+       </div>
+
+       <div class="testimonial bg-primary">
+        <img src="./img/person-2.jpg" alt="Jen">
+        <p>This resort is very clean, the food is delicious and never-ending. The staff is wonderful. We really enjoyed our stay and are looking forward to trying out another one of their locations. Definately recommend going.</p>
+
+    </div>
+   </div>
+  </section>
+</body>
+</html>
